@@ -1,0 +1,63 @@
+const mongoose=require("mongoose");
+const validator=require("validator");
+
+const studentSchema2=new mongoose.Schema({
+    name:{
+        type:String,
+        required:true
+    },
+    rollnumber:{
+        type:Number,
+        required:true
+    },
+    class:{
+        type:String,
+        required:true
+    },
+    year:{
+        type:Number,
+        required:true
+    },
+    sub1:{
+        type:number,
+        required:true,
+        validate(value){
+            if(!validator>=100){
+                throw new Error("enter mark out of 100")
+            }
+        }
+
+    },
+    sub2:{
+        type:number,
+        required:true,
+        validate(value){
+            if(!validator>=100){
+                throw new Error("enter mark out of 100")
+            }
+        }
+},
+sub3:{
+    type:number,
+    required:true,
+    validate(value){
+        if(!validator>=100){
+            throw new Error("enter mark out of 100")
+        }
+    }
+},
+sub4:{
+    type:number,
+    required:true,
+    validate(value){
+        if(!validator>=100){
+            throw new Error("enter mark out of 100")
+        }
+    }
+},
+
+})
+const Studentsmark=new mongoose.model('Studentsmark',studentSchema2);
+module.exports=Studentsmark;
+
+    

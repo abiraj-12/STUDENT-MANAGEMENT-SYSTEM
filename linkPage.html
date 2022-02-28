@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../restfulapi/src/models/studentsmarks"></script>
+  <title>Student Data</title>
+</head>
+<body>
+  <!--student information-->
+  <form action="#" name="StudentRegistration" onSubmit="return(validate());">
+
+    <table cellpadding="2" cellspacing="2">
+    
+    <tr>
+    
+      <td colspan=2>
+    
+      <b>Student Registration Form</b>
+    
+      </td>
+    
+      </tr>
+    
+    <tr>
+    
+      <td>Name</td>
+    
+      <td><input type=text name=textnames id="name" size="30"></td>
+    
+      </tr>
+    
+    <tr>
+    
+      <td>Father Name</td>
+    
+      <td><input type="text" name="fathername" id="fathername"
+    
+      size="30"></td>
+    
+      </tr>
+    
+      <tr>
+    
+      <td>Address</td>
+    
+      <td><input type="text" name="paddress" id="paddress" size="30"></td>
+    
+      </tr>
+    
+    
+      
+       <tr>
+      <td>Course</td>
+    <td><input type="text" name="course" id="course" size="30"></td>
+    </tr>
+    <tr>
+    <td>EmailId</td>
+    <td><input type="text" name="emailid" id="emailid" size="30"></td>
+    </tr>
+    
+    <tr>
+    <td>AGE</td>
+    <td><input type="text" name="age" id="age"  size="30"></td>
+    </tr>
+    
+    <tr>
+    <td>MobileNo</td>
+    <td><input type="text" name="mobileno" id="mobileno"></td>
+    </tr>
+    
+      <tr>
+    <td><input type="reset"></td>
+    <td colspan="2"><input type="submit" value="Submit Form" /></td>
+    </tr>
+    </table>
+  </form>
+<!--Student mark registration-->
+    <form action="#" name="StudentMark" >
+      
+
+      <table cellpadding="2" cellspacing="2">
+      
+      <tr>
+      
+      <td colspan=2>
+      
+        <b>Student Mark Registration</b>
+      
+        </td>
+      
+        </tr>
+        <tr>
+          <td>Name</td>
+          <td><input type="text" name="name" id="Name"></td>
+        </tr>
+          <tr>
+            <td>RollNumber</td>
+            <td><input type="text" name="rollnumber" id="rollnumber"></td>
+          </tr>
+            <tr>
+              <td>Class</td>
+              <td><input type="text" name="class" id="class"></td>
+            </tr>
+              
+                <tr>
+                  <td>YEAR</td>
+                  <td><input type="text" name="year" id="year"></td>
+                </tr>
+                  <td>Marks Obtained</td>
+                  <tr>
+                   
+                    <td>Subject1</td>
+                    <td><input type="text" name="sub1" id="sub1"></td>
+                  </tr>
+                    <tr>
+                      <td>Subject2</td>
+                      <td><input type="text" name="sub2" id="sub2"></td>
+                    </tr>
+                      <tr>
+                        <td>Subject3</td>
+                        <td><input type="text" name="sub3" id="sub3"></td>
+                      </tr>
+                        <tr>
+                          <td>Subject4</td>
+                          <td><input type="text" name="sub4" id="sub4"></td>
+                        </tr>
+                          <tr>
+                            <td>Subject5</td>
+                            <td><input type="text" name="sub5" id="sub5"></td>
+                          </tr>
+                          <tr>
+                            <td><input type="reset"></td>
+                            <td colspan="2"><input type="submit" value="Submit marks" onclick="validation()"/></td>
+                            </tr>
+                        </form>   
+
+                        <div>
+
+  <script>
+  fetch("http://localhost:3000/Studentsinfo").then(
+  res => {
+    res.json().then(
+      data => {
+        console.log(data);
+        if (data.length > 0) {
+
+          var temp = " ";
+          data.forEach((itemData) => {
+            temp +=  "<tr>";
+              temp += "<td>" + itemData.name + "</td>";
+              temp += "<td>" + itemData.fathername + "</td>";
+              temp += "<td>" + itemData.paddress + "</td>";
+              temp += "<td>" + itemData.course + "</td>";
+              temp += "<td>" + itemData.emailid + "</td>";
+              temp += "<td>" + itemData.age + "</td>";
+              temp += "<td>" + itemData.mobileno + "</td>";
+
+          });
+          document.getElementById('data').innerHTML = temp;
+        }
+      }
+    )
+  }
+)
+  
+
+
+ 
+
+</script>
+                
+                          
+</body>
+</html>
